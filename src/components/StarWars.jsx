@@ -7,7 +7,6 @@ function StarWars() {
 	const [resource, setResource] = useState("");
 	const [id, setId] = useState("");
 	const [data, setData] = useState(null);
-	const [error, setError] = useState(false);
 	const navigate = useNavigate();
 
 	useEffect(() => {
@@ -29,16 +28,24 @@ function StarWars() {
 			.get(`https://swapi.dev/api/${resource}/${id}`)
 			.then((response) => {
 				setData(response.data);
+				if (resource === "people") {
+					axios.get(response.data.homeworld).then((homeworldResponse) => {
+						setData((prevData) => ({
+							...prevData,
+							homeworld: homeworldResponse.data.name,
+						}));
+					});
+				}
 				navigate(`/${resource}/${id}`);
 			})
 			.catch((error) => {
-				setError(true);
+				console.log(error);
 			});
 	};
 
 	return (
-		<div class="container w-max mx-auto">
-			<label class="font-sans text-xl mx-2 text-warning" htmlFor="resource">
+		<div className="container w-max mx-auto">
+			<label className="font-sans text-xl mx-2 text-warning" htmlFor="resource">
 				Choose a resource:
 			</label>
 			<select id="resource" value={resource} onChange={handleResourceChange}>
@@ -49,43 +56,42 @@ function StarWars() {
 					</option>
 				))}
 			</select>
-			<label class="font-sans text-xl mx-2 text-secondary" htmlFor="id">
+			<label className="font-sans text-xl mx-2 text-secondary" htmlFor="id">
 				Enter an ID:
 			</label>
 			<input
-				class="mx-2 input-primary ring-1 w-min"
+				className="mx-2 input-primary ring-1 w-min"
 				type="number"
 				id="id"
 				value={id}
 				onChange={handleIdChange}
 			/>
-			<button class="btn-primary mx-2 px-2" onClick={handleButtonClick}>
+			<button className=" btn btn-success mx-2 px-1" onClick={handleButtonClick}>
 				Get Data
 			</button>
-			{error ? (
+			{data && (
 				<div>
-					<h1 class="py-3 text-2xl text-center text-red">These aren't the droids you're looking for</h1>
-					<img src="https://cdn4.iconfinder.com/data/icons/famous-characters-add-on-vol-1-flat/48/Famous_Character_-_Add_On_1-46-1024.png" width="200" height="200" alt="obi wan"/>
+					<h2 className="text-primary font-bold py-1 text-2xl font-sans">
+						{data.name}
+					</h2>
+					{resource === "people" && (
+						<li className="text-warning text-xl py-2 font-sans">
+							Homeworld: {data.homeworld}
+						</li>
+					)}
+					<li className="text-warning text-xl py-2 font-sans">
+						Height: {data.height}
+					</li>
+					<li className="text-warning text-xl py-2 font-sans">
+						Mass: {data.mass}
+					</li>
+					<li className="text-warning text-xl py-2 font-sans">
+						Gender: {data.gender}
+					</li>
 				</div>
-			) : (
-				data && (
-					<div>
-						<h2 class="text-primary font-bold py-2 text-2xl font-sans">
-							{data.name}
-						</h2>
-						<li class="text-warning text-xl py-2 font-sans">
-							Height: {data.height}
-						</li>
-						<li class="text-warning text-xl py-2 font-sans">
-							Mass: {data.mass}
-						</li>
-						<li class="text-warning text-xl py-2 font-sans">
-							Gender: {data.gender}
-						</li>
-					</div>
-				)
 			)}
 		</div>
 	);
 }
+
 export default StarWars;
