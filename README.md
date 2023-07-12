@@ -1,70 +1,35 @@
-# Getting Started with Create React App
+Luke APIwalker
+==============
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+You have been given a task as a front-end developer to create a front-end app to navigate the [Star Wars API](https://swapi.dev/).
 
-## Available Scripts
+![](https://assets.codingdojo.com/boomyeah2015/codingdojo/curriculum/content/chapter/star-wars-api-index.png)
 
-In the project directory, you can run:
+![](https://assets.codingdojo.com/boomyeah2015/codingdojo/curriculum/content/chapter/character-page.png)
 
-### `npm start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+![](https://assets.codingdojo.com/boomyeah2015/codingdojo/curriculum/content/chapter/star-wars-api-planets.png)
 
-### `npm test`
+In addition to the index route, you should have a route to display specific characters and a route to display specific planets. Here are a couple considerations to keep in mind:
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+*   Since the search form is shown on every route and we want to preserve its state across route changes, does it need to be rendered inside each route component?
+*   Typically we pass an empty array as the second argument to our `useEffect` calls to ensure that the API request is only made once. How can we force the useEffect callback to also run when the ID for a given route pattern has changed? **Hint:** think about putting a variable inside that array.
 
-### `npm run build`
+By reading the Star Wars API documentation, create a User Interface that does the following tasks:
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+*   Create a dropdown menu that allows the user to choose the resource they are looking for
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+*   Next to the dropdown menu, create an input field that accepts a number that will be used to query a specific id.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+*   Add a button to allow them to send a request to the API.
 
-### `npm run eject`
+*   On submission, navigate to the appropriate route and render at least 4 attributes for that specific resource.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+*   If the request is unsuccessful, create an error message that says "These aren't the droids you're looking for" with a picture of Obi-Wan Kenobi.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+*   NINJA BONUS: If the resource is "people", output the name of the character's homeworld (you may need to make another request)
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+*   NINJA BONUS: If the resource is "people" render a link to their homeworld (a specific planet). It's okay if the link text is simply "homeworld."
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+*   NINJA BONUS: Add additional resources aside from people and planets to the dropdown.

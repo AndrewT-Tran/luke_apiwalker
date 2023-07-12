@@ -1,25 +1,17 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import { Routes, Route, Link, useNavigate } from "react-router-dom";
+import { useState } from "react";
+import StarWars from "./components/StarWars";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+	// navigators are different from Link to in that they can be trggered by anything,
+	return (
+		<div className="App">
+			<h1 class="text-warning text-2xl text-center my-6">Welcome !</h1>
+		<StarWars />
+
+		</div>
+	);
 }
 
 export default App;
