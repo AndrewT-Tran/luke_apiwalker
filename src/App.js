@@ -7,8 +7,11 @@ function App() {
 	// navigators are different from Link to in that they can be trggered by anything,
 	return (
 		<div className="App">
-			<h1 class="text-warning text-6xl text-center my-6">Welcome !</h1>
-		<StarWars />
+			<h1 class="text-warning text-5xl text-center my-6">
+				<span className="text-primary">Welcome to </span>
+
+				Luke API Walker</h1>
+			<StarWars />
 
 		</div>
 	);
