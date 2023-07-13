@@ -48,7 +48,7 @@ function StarWars() {
 			<label className="font-sans text-xl mx-2 text-warning" htmlFor="resource">
 				Choose a resource:
 			</label>
-			<select id="resource" value={resource} onChange={handleResourceChange}>
+			<select className="p-3" id="resource" value={resource} onChange={handleResourceChange}>
 				<option value="">Select a resource</option>
 				{resources.map((resource) => (
 					<option key={resource} value={resource}>
@@ -60,13 +60,13 @@ function StarWars() {
 				Enter an ID:
 			</label>
 			<input
-				className="mx-2 input-primary ring-1 w-min"
+				className="mx-2 input-primary p-3 "
 				type="number"
 				id="id"
 				value={id}
 				onChange={handleIdChange}
 			/>
-			<button className=" btn btn-success mx-2 px-1" onClick={handleButtonClick}>
+			<button className=" btn btn-success text-primary text-md" onClick={handleButtonClick}>
 				Get Data
 			</button>
 			{data && (
