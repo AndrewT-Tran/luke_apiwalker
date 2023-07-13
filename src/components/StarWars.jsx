@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import Planet from "./Planet"; // import the Planet component
 
 function StarWars() {
 	const [resources, setResources] = useState([]);
@@ -69,26 +70,30 @@ function StarWars() {
 			<button className=" btn btn-success text-primary text-md" onClick={handleButtonClick}>
 				Get Data
 			</button>
-			{data && (
-				<div>
-					<h2 className="text-primary font-bold py-1 text-2xl font-sans">
-						{data.name}
-					</h2>
-					{resource === "people" && (
+			{resource === "planets" ? ( // add a conditional statement to render the Planet component
+				<Planet />
+			) : (
+				data && (
+					<div>
+						<h2 className="text-primary font-bold py-1 text-2xl font-sans">
+							{data.name}
+						</h2>
+						{resource === "people" && (
+							<li className="text-warning text-xl py-2 font-sans">
+								Homeworld: {data.homeworld}
+							</li>
+						)}
 						<li className="text-warning text-xl py-2 font-sans">
-							Homeworld: {data.homeworld}
+							Height: {data.height}
 						</li>
-					)}
-					<li className="text-warning text-xl py-2 font-sans">
-						Height: {data.height}
-					</li>
-					<li className="text-warning text-xl py-2 font-sans">
-						Mass: {data.mass}
-					</li>
-					<li className="text-warning text-xl py-2 font-sans">
-						Gender: {data.gender}
-					</li>
-				</div>
+						<li className="text-warning text-xl py-2 font-sans">
+							Mass: {data.mass}
+						</li>
+						<li className="text-warning text-xl py-2 font-sans">
+							Gender: {data.gender}
+						</li>
+					</div>
+				)
 			)}
 		</div>
 	);

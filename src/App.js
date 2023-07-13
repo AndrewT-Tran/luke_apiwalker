@@ -2,7 +2,7 @@ import "./App.css";
 import { Routes, Route, Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import StarWars from "./components/StarWars";
-
+import PlanetInfo from "./components/Planet";
 function App() {
 	// navigators are different from Link to in that they can be trggered by anything,
 	return (

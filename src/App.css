@@ -433,21 +433,20 @@ html {
 
 :root {
   color-scheme: dark;
-  --pf: 210 64% 24%;
-  --sf: 200 13% 48%;
-  --af: 13 80% 53%;
-  --nf: 213 14% 9%;
-  --b2: 0 0% 6%;
-  --b3: 0 0% 0%;
-  --bc: 145 0% 80%;
-  --pc: 219 26% 86%;
-  --sc: 200 7% 12%;
-  --ac: 14 40% 13%;
-  --nc: 214 3% 81%;
-  --inc: 210 64% 91%;
-  --suc: 141 16% 12%;
-  --wac: 37 30% 13%;
-  --erc: 11 59% 89%;
+  --pf: 262 80% 43%;
+  --sf: 316 70% 43%;
+  --af: 175 70% 34%;
+  --in: 198 93% 60%;
+  --su: 158 64% 52%;
+  --wa: 43 96% 56%;
+  --er: 0 91% 71%;
+  --inc: 198 100% 12%;
+  --suc: 158 100% 10%;
+  --wac: 43 100% 11%;
+  --erc: 0 100% 14%;
+  --rounded-box: 1rem;
+  --rounded-btn: 0.5rem;
+  --rounded-badge: 1.9rem;
   --animation-btn: 0.25s;
   --animation-input: .2s;
   --btn-text-case: uppercase;
@@ -455,37 +454,37 @@ html {
   --border-btn: 1px;
   --tab-border: 1px;
   --tab-radius: 0.5rem;
-  --p: 210 64% 31%;
-  --s: 200 13% 55%;
-  --a: 13 80% 60%;
-  --n: 213 14% 16%;
-  --b1: 0 0% 13%;
-  --in: 199 100% 42%;
-  --su: 144 31% 56%;
-  --wa: 39 64% 60%;
-  --er: 6 56% 43%;
-  --rounded-box: 0.25rem;
-  --rounded-btn: .125rem;
-  --rounded-badge: .125rem;
+  --p: 262 80% 50%;
+  --pc: 0 0% 100%;
+  --s: 316 70% 50%;
+  --sc: 0 0% 100%;
+  --a: 175 70% 41%;
+  --ac: 0 0% 100%;
+  --n: 213 18% 20%;
+  --nf: 212 17% 17%;
+  --nc: 220 13% 69%;
+  --b1: 212 18% 14%;
+  --b2: 213 18% 12%;
+  --b3: 213 18% 10%;
+  --bc: 220 13% 69%;
 }
 
-[data-theme=business] {
+[data-theme=dark] {
   color-scheme: dark;
-  --pf: 210 64% 24%;
-  --sf: 200 13% 48%;
-  --af: 13 80% 53%;
-  --nf: 213 14% 9%;
-  --b2: 0 0% 6%;
-  --b3: 0 0% 0%;
-  --bc: 145 0% 80%;
-  --pc: 219 26% 86%;
-  --sc: 200 7% 12%;
-  --ac: 14 40% 13%;
-  --nc: 214 3% 81%;
-  --inc: 210 64% 91%;
-  --suc: 141 16% 12%;
-  --wac: 37 30% 13%;
-  --erc: 11 59% 89%;
+  --pf: 262 80% 43%;
+  --sf: 316 70% 43%;
+  --af: 175 70% 34%;
+  --in: 198 93% 60%;
+  --su: 158 64% 52%;
+  --wa: 43 96% 56%;
+  --er: 0 91% 71%;
+  --inc: 198 100% 12%;
+  --suc: 158 100% 10%;
+  --wac: 43 100% 11%;
+  --erc: 0 100% 14%;
+  --rounded-box: 1rem;
+  --rounded-btn: 0.5rem;
+  --rounded-badge: 1.9rem;
   --animation-btn: 0.25s;
   --animation-input: .2s;
   --btn-text-case: uppercase;
@@ -493,18 +492,19 @@ html {
   --border-btn: 1px;
   --tab-border: 1px;
   --tab-radius: 0.5rem;
-  --p: 210 64% 31%;
-  --s: 200 13% 55%;
-  --a: 13 80% 60%;
-  --n: 213 14% 16%;
-  --b1: 0 0% 13%;
-  --in: 199 100% 42%;
-  --su: 144 31% 56%;
-  --wa: 39 64% 60%;
-  --er: 6 56% 43%;
-  --rounded-box: 0.25rem;
-  --rounded-btn: .125rem;
-  --rounded-badge: .125rem;
+  --p: 262 80% 50%;
+  --pc: 0 0% 100%;
+  --s: 316 70% 50%;
+  --sc: 0 0% 100%;
+  --a: 175 70% 41%;
+  --ac: 0 0% 100%;
+  --n: 213 18% 20%;
+  --nf: 212 17% 17%;
+  --nc: 220 13% 69%;
+  --b1: 212 18% 14%;
+  --b2: 213 18% 12%;
+  --b3: 213 18% 10%;
+  --bc: 220 13% 69%;
 }
 
 [data-theme=emerald] {
@@ -3332,9 +3332,20 @@ details.collapse summary::-webkit-details-marker {
   border-width: 1px;
 }
 
+.border-secondary {
+  --tw-border-opacity: 1;
+  border-color: hsl(var(--s) / var(--tw-border-opacity));
+}
+
 .bg-red-300 {
   --tw-bg-opacity: 1;
   background-color: rgb(252 165 165 / var(--tw-bg-opacity));
+}
+
+.from-primary-focus {
+  --tw-gradient-from: hsl(var(--pf) / 1) var(--tw-gradient-from-position);
+  --tw-gradient-to: hsl(var(--pf) / 0) var(--tw-gradient-to-position);
+  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
 }
 
 .p-3 {
@@ -3389,19 +3400,9 @@ details.collapse summary::-webkit-details-marker {
   line-height: 2rem;
 }
 
-.text-xl {
-  font-size: 1.25rem;
-  line-height: 1.75rem;
-}
-
 .text-3xl {
   font-size: 1.875rem;
   line-height: 2.25rem;
-}
-
-.text-6xl {
-  font-size: 3.75rem;
-  line-height: 1;
 }
 
 .text-4xl {
@@ -3414,12 +3415,27 @@ details.collapse summary::-webkit-details-marker {
   line-height: 1;
 }
 
+.text-6xl {
+  font-size: 3.75rem;
+  line-height: 1;
+}
+
+.text-xl {
+  font-size: 1.25rem;
+  line-height: 1.75rem;
+}
+
 .font-bold {
   font-weight: 700;
 }
 
 .uppercase {
   text-transform: uppercase;
+}
+
+.text-accent {
+  --tw-text-opacity: 1;
+  color: hsl(var(--a) / var(--tw-text-opacity));
 }
 
 .text-primary {
@@ -3447,9 +3463,14 @@ details.collapse summary::-webkit-details-marker {
   color: rgb(255 255 255 / var(--tw-text-opacity));
 }
 
-.text-accent {
+.text-secondary-focus {
   --tw-text-opacity: 1;
-  color: hsl(var(--a) / var(--tw-text-opacity));
+  color: hsl(var(--sf) / var(--tw-text-opacity));
+}
+
+.text-accent-focus {
+  --tw-text-opacity: 1;
+  color: hsl(var(--af) / var(--tw-text-opacity));
 }
 
 .underline {
